@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Shopzy</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+
+<h1>Shopzy</h1>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="products.html">Products</a>
+<a href="cart.html">Cart</a>
+</nav>
+<div class="search-box">
+<input type="text" id="searchInput" placeholder="Search products..." onkeyup="searchProducts()">
+</div>
+
+<div id="userBox">
+<span id="welcomeUser"></span>
+<a href="login.html" id="loginBtn">Login</a>
+<button id="logoutBtn" onclick="logout()">Logout</button>
+</div>
+
+</header>
+
+
+<section class="hero">
+
+<h2 id="welcomeText">Welcome to Shopzy</h2>
+
+<p>Modern. Minimal. Smart Shopping.</p>
+
+<a href="products.html" class="btn">Explore Products</a>
+
+</section>
+
+
+<section class="trending">
+
+<h2>Trending Products</h2>
+
+<div id="trendingProducts" class="product-grid"></div>
+
+</section>
+
+
+<section class="reviews">
+
+<h2>Customer Reviews</h2>
+
+<div class="review-form">
+
+<input type="text" id="reviewName" placeholder="Your Name">
+
+<select id="reviewRating">
+<option value="5">⭐⭐⭐⭐⭐</option>
+<option value="4">⭐⭐⭐⭐</option>
+<option value="3">⭐⭐⭐</option>
+<option value="2">⭐⭐</option>
+<option value="1">⭐</option>
+</select>
+
+<textarea id="reviewComment" placeholder="Write your review"></textarea>
+
+<button onclick="submitReview()">Submit Review</button>
+
+</div>
+
+<div id="reviewsContainer"></div>
+
+</section>
+
+
+<script src="script.js"></script>
+
+<script>
+
+const username=localStorage.getItem("username");
+
+if(username){
+
+document.getElementById("welcomeUser").innerText="👤 "+username;
+
+document.getElementById("loginBtn").style.display="none";
+
+document.getElementById("welcomeText").innerText=
+"Welcome "+username+" to Shopzy";
+
+}
+
+</script>
+
+</body>
+</html>
